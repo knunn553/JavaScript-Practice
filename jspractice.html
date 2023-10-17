@@ -10,6 +10,130 @@
 
 </head>
 <body>
+    <h1>The JavaScript "this" Keyword</h1>
+    <p>
+        <ul>
+            <li>
+                // this is an object
+            </li>
+            <li>
+                // below we will create an object and return values using the this keyword
+            </li>
+            <li>
+                // "this" refers to the object it is in.. this object.
+            </li>
+            <li>
+                // "this" is not a variable, it is a keyword.
+            </li>
+            <li>
+                // When used in strict mode, "this" is undefined.
+            </li>
+
+        </ul>
+    </p>
+
+
+    <p>
+        "this" precendence to determine which object it belongs to.
+        <ol>
+            <li> bind()</li>
+            <li> apply() call()</li>
+            <li> Local Scope </li>
+            <li> Global Scope </li>
+
+        </ol>
+    </p>
+    <p id="demo1"></p>
+    <hr />
+
+
+    <h3> Using "this" in event handlers </h3>
+    <button onclick="this.style.display='none'">
+        Click here to remove button
+    </button>
+    <hr />
+
+
+
+    <h3> Taking a look at call() and apply()</h3>
+    <p>
+        call() and apply() methods
+        <ul>
+            <li>
+                // The call() and apply() methods are predefined JavaScript methods
+            </li>
+            <li>
+                // The call() method is just like a phone-a-friend. One object calls the other and is like "Hey what's up man, can I borrow an element?"
+
+            </li>
+        </ul>
+    </p>
+    <p id="demo11"></p>
+    <hr />
+
+
+
+    <h3> bind() method </h3>
+    <h5> With the bind() method, and object can borrow a method from another object </h5>
+    <p id="demo12"></p>
+    <hr />
+
+
+    <h1> Arrow Functions => </h1>
+    <h5> Arrow functions were introduced to allow us to write shorter function syntax</h5>
+
+    <p id="demo13"></p>
+    <hr />
+
+    <h3> Before Arrow </h3>
+    <p id="demo14"></p>
+
+    <h3> After Arrow</h3>
+    <p id="demo15"></p>
+
+
+    <h5> Don't worry, it gets shorter</h5>
+    <p>The below script only works if you have one statement.</p>
+
+    <p id="demo16"></p>
+    <hr />
+
+
+    <h3> Showing an arrow function with a parameter. </h3>
+    <ul>
+        <li> If you have parameters, you pass them inside the parentheses</li>
+        <li> In fact, if you have only one parameter, you can skip the parentheses as well </li>
+        <li> This handling of "this" is also different in arrow functions than regular functions. </li>
+        <li> With arrow functions, there is no binding of this. </li>
+    </ul>
+    <p class="arrive" id="demo17"></p>
+    <hr />
+
+    <h5> What about "this" in arrow function?</h5>
+    <h3> In regular functions the "this" keyword represented the object that called the function, which could be the window, the document, a button or whatever. </h3>
+    <h3> With arrow functions the "this" keyword always represents the object that defined the arrow function. </h3>
+
+    <h3> "This" within a regular function (looking at button and window examples):</h3>
+    <button id="btn11"> Click Me</button>
+    <p id="demo18"></p>
+
+    <h3> "This" within an Arrow function (looking at button and window examples):</h3>
+    <button id="btn12"> Click Me</button>
+    <p id="demo19"></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
