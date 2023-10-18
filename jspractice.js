@@ -130,6 +130,69 @@ document.getElementById("btn12").addEventListener("click", hello12);
 
 
 ////////////////
+// Using the keyword Class to create a class. Alwyas adding method named constructor() to the class.
+//class ClassName {
+//    constructor {... }
+//}
+
+//// Class example
+// It is important to note that Class is not an object but rather a template for an object.
+// When you have a class, you can use the class to create objects.
+
+class Car {
+    constructor(name, year) {
+        this.name = name;
+        this.year = year;
+    }
+}
+
+const myCar1 = new Car("Audi", 2015);
+const myCar2 = new Car("VW", 2017);
+
+document.getElementById("demo21").innerHTML =
+    myCar1.name + "<br>" + myCar2.name;
+
+// Above where it says "Class example", while that code was running, the demo21 script would not run and show up in HTML doc.
+// The example above uses the car Class to create two car Objects.
+// The constructor method is called automatically when a new object is created.
+// The constructor mehod is used to initialize object properties
+
+
+class Player {
+    constructor(player, year1) {
+        this.player = player;
+        this.year1 = year1;
+    }
+    age() {
+        const date = new Date();
+        return date.getFullYear() - this.year1;
+    }
+}
+
+const myPlayer = new Player("Harper", 1992);
+document.getElementById("demo22").innerHTML =
+    "Bryce Harper is  " + myPlayer.age() + " years old.";
+
+// You can also send parameters to Class Methods.
+class Vehicle {
+    constructor(name1, year2) {
+        this.name1 = name1;
+        this.year1 = year1;
+    }
+    age1(x) {
+        return x - this.year1;
+    }
+}
+
+const date1 = new Date();
+let year1 = date1.getFullYear();
+
+const myVehicle = new Vehicle("VW", 2005);
+document.getElementById("demo23").innerHTML =
+    "My car is " + myVehicle.age1(year1) + " years old.";
+
+
+
 
 
 
