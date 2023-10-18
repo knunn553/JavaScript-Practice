@@ -209,6 +209,48 @@ document.getElementById("demo24").innerHTML = text;
 
 //////////
 
+// JSON stands for JavaScript Object Notation
+// JSON is a format for storing and transporting data.
+// JSON is often used when data is sent from the server to the webpage.
+// JSON is language independent
+// JSON data is written in name object pairs, just like Object properties
+// JSON names require double quotes, JavaScript names do not.
+// JSON arrays are put inside square brackets, but just like JS, ararys can contain objects.
+
+// JSON Example
+
+//{
+//    "employees" = [
+//        { "firstname3": "Kyle", "lastname3": "Nunn" },
+//        { "firstname3": "Ryan", "lastname3": "Scanlon" },
+//        { "firstname3": "Ben", "lastname3": "Goins" },
+//    ]
+//}
+
+// Converting a JSON text into a JavaScript Object
+// For simplicity, this can be demonstrated using a string as input.
+// First, create a JavaScript string containing JSON syntax:
+
+let text2 = '{"employees1" :[' +
+    '{ "firstname3": "Kyle", "lastname3": "Nunn" },' +
+    '{ "firstname3": "Ryan", "lastname3": "Scanlon" },' +
+    '{ "firstname3": "Ben", "lastname3": "Goins" }]}';
+
+    // Now we'll use the JavaScript function JSON.parse() to convert the string into a JavaScript object.
+
+const obj = JSON.parse(text2);
+
+// Finally, we can use the JavaScript Object on our page:
+// Let's go with Scantron.
+
+document.getElementById("demo25").innerHTML =
+    obj.employees1[1].firstname3 + " " + obj.employees1[1].lastname3;
+
+
+
+
+
+
 
 
 
