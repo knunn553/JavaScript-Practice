@@ -191,6 +191,23 @@ const myVehicle = new Vehicle("VW", 2005);
 document.getElementById("demo23").innerHTML =
     "My car is " + myVehicle.age1(year1) + " years old.";
 
+////////
+// Taking a look at Modules
+// There are two types of Modules: Named Modules and Default Modules
+// Going to create a file names person.js
+// We will call the export function for each individual object then we will do them all at once at the bottom, a much faster approach.
+
+// We are going to create a another JavaScript file, message.js for default export demonstration purposes.
+////
+
+//Importing with Named Export
+import { name, type } from "./person.js";
+let text = "My name is " + name + "and I am a " + type;
+document.getElementById("demo24").innerHTML = text;
+
+//Importing with Default Export
+
+//////////
 
 
 
