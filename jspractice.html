@@ -141,9 +141,9 @@
 
     <p>
         Hypothetically, it would take the form <b>
-    import message from "./message.js"; <br />
-    document.getElementById("demo").innerHTML = message();
-</b>
+            import message from "./message.js"; <br />
+            document.getElementById("demo").innerHTML = message();
+        </b>
     </p>
 
     <p> Importing Named Module</p>
@@ -181,11 +181,124 @@
     <p id="demo25"></p>
 
 
+    <h1> Debugging </h1>
+    <p> Normally, active debugging capabilities in the browser with the F12 key and select "Console in the debugger menu"</p>
+    <p> If the browser supports debugging, we can use console.log()</p>
+    <p> On a Mac, we can access debugging by pressing the fn key and then the volume up key.</p>
+
+
+    <h1> Style Guide </h1>
+    <p>
+        // It is good to use camelCase for variables and functions, also called identifier names.<br />
+        // All names start with a letter. A letter. A letter. Not a number. A letter.<br />
+        // Always put spaces around operators and after commas <br />
+        // Always use two spaces of indentation for code blocks. <br />
+        // DO NOT use tabulators for indentations. Different editors interpret tabs differently.
+        // Always put semi colon after simple statements.
+
+        const veggies = ["Carrot", "Squash", "Kale"];
+
+        // General Rules for complex (compound) statements
+        // Put opening bracket at end of the first line
+        // One space before the first bracket
+        // Do not end a complex statement with a semi colon
+        // Complex statement example: Functions, Loops, Conditionals. <br />
+
+
+        function toCelsius(fahrenheit) { <br />
+        return (5 / 9) * (fahrenheit - 32); <br />
+        } <br />
+        <br />
+        for (let i = 0; i < 5; i++) { <br />
+        x += i; <br />
+        } <br />
+        <br />
+        if (time < 20) { <br />
+        greeting = "Good day"; <br />
+        } else { <br />
+        greeting = "Good evening"; <br />
+        }
+
+    </p>
+
+    <h2> Object Rules </h2>
+    <ul>
+        <li> Place opening bracket on the same line as the object name. </li>
+        <li> Use a colon plus one space between each property and its value. </li>
+        <li> Use quotes around string values, not numeric values. </li>
+        <li> Do <b> NOT </b> add a comma after the last property value pair. </li>
+        <li> Place the closing bracket on a new line, without leading spaces. </li>
+        <li> Always end an object definition with a semicolon. </li>
+    </ul>
+
+    <h2> Line Length </h2>
+    <ul>
+        <li> Best to keep JavaScript line lengths to under 80. </li>
+        <li> Above 80, it is best to break it after a comma or an operator. </li>
+    </ul>
+
+    <h2> JavaScript Best Practices </h2>
+
+    <ul>
+        <li> Avoid global variables - easily get confused once code starts getting into the thousands. </li>
+        <li> Avoid new </li>
+        <li> Avoid == </li>
+        <li> Avoid eval() </li>
+        <li> Always declear variables with let, var, or const - no matter what. </li>
+    </ul>
+
+    <h2> Place declarations on the top </h2>
+    <ul>
+        <li> It is a best practice to put declarations on the top. </li>
+        <li> Makes for cleaner code and readability </li>
+        <li> The same goes for loop variables! </li>
+    </ul>
+
+    <h2> Declare at the beginning </h2>
+    <p> <b>let firstName, lastName, price, discount, fullPrice;</b> </p>
+
+    <h2> Use later after declaration at the beginning </h2>
+                                                            <p>
+                                                                firstName = "John"; <br />
+                                                                lastName = "Doe"; <br />
+
+                                                                price = 19.90; <br />
+                                                                discount = 0.10; <br />
+
+                                                                fullPrice = price - discount;
+                                                            </p>
+
+    <h2>Same concept with declarations applies to loop variables. </h2>
+
+    <p>for (let i = 0; i < 5; i++) { </p>
+
+    <ul>
+        <li> It is also good practice to not only declare variables at the beginning of the JS file, but also initiate them with a type and value. </li>
+        <li> Initializing variables provides an idea of the intended use (and intended data type). </li>
+        <li> Do NOT use new Object() of any kind! </li>
+        <li> Declare Arrays and Objects with the const declaration. </li>
+    </ul>
+    
+
+    <h2> Important: Using Parameter Defaults </h2>
+    <ul>
+        <li>Undefined values can break a file of code.</li>
+        <li>It is best to assign default values to arguments</li>
+    </ul>
+
+    <p>
+    function myFunction(x, y) { <br />
+    if (y === undefined) { <br />
+    y = 0; <br />
+    } <br />
+    }
+</p>
 
 
 
 
-  
+
+
 
 
 

@@ -246,6 +246,118 @@ const obj = JSON.parse(text2);
 document.getElementById("demo25").innerHTML =
     obj.employees1[1].firstname3 + " " + obj.employees1[1].lastname3;
 
+///////////
+// Debugging
+// Normally, active debugging capabilities in the browser with the F12 key and select "Console in the debugger menu"
+// If the browser supports debugging, we can use console.log()
+// On a Mac, we can access debugging by pressing the fn key and then the volume up key.
+
+
+// Syle Guide
+// It is good to use camelCase for variables and functions, also called identifier names.
+// All names start with a letter. A letter. A letter. Not a number. A letter.
+// Always put spaces around operators and after commas.
+// Always use two spaces of indentation for code blocks. <br />
+// DO NOT use tabulators for indentations. Different editors interpret tabs differently.
+// Always put semi colon after simple statements.
+
+const veggies = ["Carrot", "Squash", "Kale"];
+
+// General Rules for complex (compound) statements
+// Put opening bracket at end of the first line
+// One space before the first bracket
+// Do not end a complex statement with a semi colon
+// Complex statement example: Functions, Loops, Conditionals.
+
+function toCelsius(fahrenheit) {
+    return (5 / 9) * (fahrenheit - 32);
+}
+
+for (let i = 0; i < 5; i++) {
+    x += i;
+}
+
+if (time < 20) {
+    greeting = "Good day";
+} else {
+    greeting = "Good evening";
+}
+
+
+///////
+//  Object Rules
+
+//  Place opening bracket on the same line as the object name.
+//  Use a colon plus one space between each property and its value. 
+//  Use quotes around string values, not numeric values. 
+//  Do <b> NOT </b> add a comma after the last property value pair. 
+//  Place the closing bracket on a new line, without leading spaces.
+//  Always end an object definition with a semicolon. 
+
+
+//  Line Length
+
+//  Best to keep JavaScript line lengths to under 80.
+//  Above 80, it is best to break it after a comma or an operator.
+
+
+// JavaScript Best Practices
+
+// Avoid global variables - easily get confused once code starts getting into the thousands.
+// Avoid new
+// Avoid ==
+// Avoid eval()
+// Always declear variables with let, var, or const - no matter what.
+
+// Place declarations on the top
+// It is a best practice to put declarations on the top
+// Makes for cleaner code and readability
+// The same goes for loop variables!
+
+// Declare at the beginning
+let firstName, lastName, price, discount, fullPrice;
+
+// Use later
+firstName = "John";
+lastName = "Doe";
+
+price = 19.90;
+discount = 0.10;
+
+fullPrice = price - discount;
+
+// Some concept with declarations applies to loop variables:
+for (let i = 0; i < 5; i++) {
+
+// It is also good practice to not only declare variables at the beginning of the JS file, but also initiate them with a type and value.
+// Initializing variables provides an idea of the intended use (and intended data type).
+// Do NOT use new Object() of any kind!
+// Declare Arrays and Objects with the const declaration.
+
+/// Important: Using Parameter Defaults
+//  Undefined values can break a file of code.
+//  It is best to assign default values to arguments:
+
+    function myFunction(x, y) {
+        if (y === undefined) {
+            y = 0;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
