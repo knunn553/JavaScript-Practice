@@ -345,6 +345,53 @@ for (let i = 0; i < 5; i++) {
     }
 
 
+// Example of typical function random practice
+
+    document.getElementById("demo28").innerHTML = myFunction(55);
+    function myFunction(a) {
+        let power = 10;
+        return a * power;
+    }
+
+    // Never break a return statement
+    ////////
+
+
+    // Iterating a string with a for of loop
+    //const fit = "Fitness";
+
+    //let stringtxt = ""
+    //for (const x of fit) {
+    //    stringtxt += x + "<br>";
+    //}
+
+    //document.getElementById("forofstring").innerHTML = stringtxt;
+
+  
+
+    // Example of iterating through string using for..of
+    const name = "Fitness";
+
+    let bigtext = ""
+    for (const x of name) {
+        bigtext += x + "<br>";
+    }
+
+    document.getElementById("bigdemo").innerHTML = bigtext;
+
+
+    // Creating a new set
+    // Creating a set and adding literal values
+    // Looking at the forEach() method
+    // Looking at the keys() method
+    // Looking at the entries() method
+
+
+
+
+
+
+
 
 
 

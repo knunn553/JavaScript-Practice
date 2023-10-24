@@ -5,8 +5,8 @@
 
     <title>Practice JS</title>
     <link href="jspractice.css" rel="stylesheet" type="text/css" />
-    <script src="jspractice.js" defer></script>
-    <script src="person.js" type="module"></script>
+    <script src="jspractice.js" type="module" defer></script>
+    <script src="person.js" type="module"  ></script>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
@@ -258,15 +258,15 @@
     <p> <b>let firstName, lastName, price, discount, fullPrice;</b> </p>
 
     <h2> Use later after declaration at the beginning </h2>
-                                                            <p>
-                                                                firstName = "John"; <br />
-                                                                lastName = "Doe"; <br />
+    <p>
+        firstName = "John"; <br />
+        lastName = "Doe"; <br />
 
-                                                                price = 19.90; <br />
-                                                                discount = 0.10; <br />
+        price = 19.90; <br />
+        discount = 0.10; <br />
 
-                                                                fullPrice = price - discount;
-                                                            </p>
+        fullPrice = price - discount;
+    </p>
 
     <h2>Same concept with declarations applies to loop variables. </h2>
 
@@ -278,7 +278,7 @@
         <li> Do NOT use new Object() of any kind! </li>
         <li> Declare Arrays and Objects with the const declaration. </li>
     </ul>
-    
+
 
     <h2> Important: Using Parameter Defaults </h2>
     <ul>
@@ -287,12 +287,140 @@
     </ul>
 
     <p>
-    function myFunction(x, y) { <br />
-    if (y === undefined) { <br />
-    y = 0; <br />
-    } <br />
-    }
-</p>
+        function myFunction(x, y) { <br />
+        if (y === undefined) { <br />
+        y = 0; <br />
+        } <br />
+        }
+    </p>
+
+    <h1> // Example of typical function random practice </h1>
+    <p id="demo28"></p>
+
+
+
+    <h2> Iterating through a string using for..of</h2>
+    <p id="bigdemo"></p>
+
+
+
+    <script>const name = "Fitness";
+
+        let bigtext = ""
+        for (const x of name) {
+            bigtext += x + "<br>";
+        }
+
+        document.getElementById("bigdemo").innerHTML = bigtext;</script>
+
+
+    <h2> Iterating through an array using for..of</h2>
+    <p id="bomberdemo"></p>
+
+    <script>// With for..of, the symbolIterator method is called automatically
+        const bomberarray = ["Jeter", "Gehrig", "Ruth"]
+
+        let bombertext = ""
+        for (const x of bomberarray) {
+            bombertext += x + "<br>";
+        }
+
+        document.getElementById("bomberdemo").innerHTML = bombertext;
+
+        // Or, we could do the for...of manually, if we wanted.</script>
+
+    <h1> JavaScript Sets </h1>
+    <p>
+        <ul>
+            <li> A JavaScript set is a collection of unique values. </li>
+            <li> Each value can only occur once of a set. </li>
+            <li> A set can hold any value of any data type. </li>
+        </ul>
+    </p>
+
+    <h3> How to add a new set? </h3>
+    <p>
+        <ul>
+            <li> Use new Set() </li>
+            <li> Create a set and use add() to add values. </li>
+            <li> Create a set and use add() to add variables. </li>
+        </ul>
+    </p>
+
+    <h3>Creating a new set</h3>
+    <p id="newset"></p>
+    <script>const letters = new Set(["a", "b", "c"]);
+        document.getElementById("newset").innerHTML = letters.size;</script>
+
+    <h3> // Creating a set and adding literal values </h3>
+    <p></p>
+    <script>const endletters = new Set();
+
+        endletters.add("z");
+        endletters.add("y");
+        endletters.add("x");
+
+        document.getElementById("newset").innerHTML = endletters.size;</script>
+
+    <h3> // Creating a set and adding literal values </h3>
+    <p></p>
+    <script>const endletters = new Set();
+
+        endletters.add("z");
+        endletters.add("y");
+        endletters.add("x");
+
+        document.getElementById(" endletterset").innerHTML = endletters.size;</script>
+
+
+    <h3> forEach() calls a function for each element: </h3>
+    <p demo="foreach"> </p>
+    <script>//const letters = new Set(["a", "b", "c"]);
+        //let txt2 = "";
+        //letters.forEach (function(value) {
+        //    txt2 += value + "<br>";
+        //})
+
+        //document.getElementById("foreach").innerHTML = txt2;</script>
+
+    <h3> The keys method </h3>
+    <p>
+        <ul>
+            <li> Sets do not have keys </li>
+            <li> It is equivalent to values()</li>
+            <li> This makes them compatible with Maps</li>
+        </ul>
+    </p>
+
+    <h3> The entries() method </h3>
+    <p>
+        <ul>
+            <li> Sets do not have keys.. </li>
+            <li> entries returns [value,value] instead of [key, value]</li>
+            <li> This, again, makes them compatible with Maps</li>
+        </ul>
+    </p>
+    <p id="demolition"></p>
+    
+    <script>
+        const letters = new Set(["a", "b", "c"]);
+
+        // List all entries
+        const iterator = letters.entries();
+        let taxt = "";
+        for (const entry of iterator) {
+            taxt += entry + "<br>";
+        }
+
+        document.getElementById("demolition").innerHTML = taxt;
+
+        </script>
+
+
+
+
+
+
 
 
 
