@@ -304,6 +304,10 @@
 
 
 
+
+
+
+
     <script>const name = "Fitness";
 
         let bigtext = ""
@@ -401,9 +405,8 @@
         </ul>
     </p>
     <p id="demolition"></p>
-    
-    <script>
-        const letters = new Set(["a", "b", "c"]);
+
+    <script>const letters = new Set(["a", "b", "c"]);
 
         // List all entries
         const iterator = letters.entries();
@@ -412,33 +415,751 @@
             taxt += entry + "<br>";
         }
 
-        document.getElementById("demolition").innerHTML = taxt;
+        document.getElementById("demolition").innerHTML = taxt;</script>
 
-        </script>
+    <h1> JavaScript Maps</h1>
+    <ul>
+        <li> A map holds key-value pairs where the key can be any data type </li>
+        <li> A map remembers the original insertion order of the keys </li>
+        <li> A map has a property that sets the size of the map</li>
+    </ul>
 
+    <p> You can create a JavaScrtip map by :</p>
+    <ul>
+        <li> Passing an array to new Map() </li>
+        <li> Create a map and use Map.set()</li>
+    </ul>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <h2> new Map()</h2>
+    <p> We set an array within a Map()</p>
+    <p id="dealsdemo"></p>
 
 
 
 
 
+    <script>// You can create a new map by passing an Array to the new Map() constuctor
+
+        const deals = new Map([
+            ["basic", 10],
+            ["pro", 25],
+            ["premium", 50]
+        ]);
+
+        document.getElementById("dealsdemo").innerHTML = deals.get("pro");</script>
+
+    <p> You can add elements to the Map() using the set() method :</p>
+    <p id="dealdemo"></p>
+
+    <script>// We can add elements to the Map() using the set() method
+        const deal = new Map();
+
+        deal.set("basic", 10);
+        deal.set("pro", 25);
+        deal.set("premium", 50);
+
+        document.getElementById("dealdemo").innerHTML = deals.get("basic")</script>
 
 
+    <p> Using the set method can also be used to change existing Map() values.</p>
+    <p id="demodealchange"></p>
+
+    <script>// Using the set method can also be used to change existing Map() values.
+
+        const newdeals = new Map([
+            ["basic", 10],
+            ["pro", 25],
+            ["premium", 50]
+        ]);
+
+        newdeals.set("premium", 60);
+
+        document.getElementById("demodealchange").innerHTML = newdeals.get("premium");</script>
+
+    <p> The get() method gets the value of a key in a map</p>
+    <p id="brands"></p>
+
+    <script>// The get() method gets the value of a key in a map
+        const brands = new Map([
+            ["Nike", 100],
+            ["Adidas", 200],
+            ["Versace", 300]
+        ]);
+
+        document.getElementById("brands").innerHTML = brands.get("Adidas");</script>
+
+    <p> The size() property returns the number of elements in a Map()</p>
+    <p id="presidents"></p>
+
+    <script>// The size property returns the number of elements in a Map()
+        const presidents = new Map([
+            ["Barack", 1],
+            ["Trump", 2],
+            ["Bush", 3]
+        ]);
+
+        document.getElementById("presidents").innerHTML = presidents.size;</script>
+
+    <p> The delete() method removes a map element</p>
+    <p> The clear() method removes all elements from a map</p>
+    <p> Needs to be in map.clear() format</p>
+    <br />
+    <br />
+    <p> The Map.has() method returns true of the map has a particular element</p>
+    <p id="seasondemo"></p>
+    <script>const seasons = new Map([
+            ["fall", 0],
+            ["spring", 0],
+            ["summer", 9]
+        ]);
+
+        document.getElementById("seasondemo").innerHTML = seasons.has("fall");</script>
+
+    <p> To figure out what type of vairable, string, boolean, int, object, we are dealing with, JavaScript uses typeof() method. </p>
+    <p> When using the typeof() method on the Map, we get Object. Maps are objecs baby.</p>
+    <p> In addition, we see that instanceof() returns true. Instanceof() checks to see if something is an object.</p>
+
+    <h2> Map forEach()</h2>
+    <p> The forEach() method invokes a callback for each key/value pair in a Map.</p>
+    <p id="fooddemo"></p>
+    <script>const food = new Map([
+            ["Fries", 100],
+            ["Burger", 200],
+            ["HotDog", 300]
+        ]);
+
+        let message = "";
+        food.forEach(function (value, key) {
+            message += key + " = " + value + "<br>"
+        })
+
+        document.getElementById("fooddemo").innerHTML = message;</script>
+
+    <p> The entries() returns an iterator object with the [key,values] in a Map</p>
+    <p id="drinksdemo"></p>
+    <script>const drinks = new Map([
+            ["Juice", 1],
+            ["Water", 2],
+            ["Milk", 3]
+        ]);
+
+        let drinktext = "";
+        for (const x of drinks.entries()) {
+            drinktext += x + "<br>";
+        }
+
+        document.getElementById("drinksdemo").innerHTML = drinktext;</script>
+    <p> The keys() method returns an iterator object with the keys in a Map</p>
+    <p> The same with the keys() method returning an iterator object for the keys in a Map, the values() method does so for the values.</p>
+    <p> You can also use the values() method to sum the values in a Map</p>
+    <br />
+    <br />
+    <p> Being able to use objects as keys is an important Map feature</p>
+    <p> This way, we can add OBJECTS to the Maps</p>
+    <p id="objaskeydemo"></p>
+
+    <script>// Creating objects
+        const knife = { name: "Knife" };
+        const spoon = { name: "Spoon" };
+        const fork = { name: "Fork" };
+
+        // Creating a map
+        const cutlery = new Map();
+
+        // Adding variables. No, not variables, OBJECTS to the map.
+        cutlery.set(knife, 500);
+        cutlery.set(spoon, 400);
+        cutlery.set(fork, 300);
+
+        document.getElementById("objaskeydemo").innerHTML = cutlery.get(knife);</script>
+    <p> It is important to understand that key is an object apple, not a string "apple".</p>
+
+    <h1> JavaScript ES5 Object Methods </h1>
+    <p> ECMA5 added alot of new object methods to JS</p>
+    <br />
+    <p>
+        Create objec with an existing object as a prototype:
+        Object.create()
+    </p>
+    <br />
+    <p>
+        Adding or changing an object property:
+        Object.defineProperty(object, property, descriptor)
+    </p>
+    <br />
+    <p>
+        Adding or changing object properties:
+        OBbject.defineProperties(object, descriptors)
+    </p>
+    <br />
+    <p>
+        Accessing properties:
+        Object.getOwnPropertyDescriptor(object, property)
+    </p>
+    <br />
+    <p>
+        Return all properties as an array:
+        Object.getOwnPropertyNames(object)
+    </p>
+    <br />
+    <p>
+        Accessing the prototype:
+        OBject.getPrototypeOf(Object)
+    </p>
+    <br />
+    <p>
+        Returning enumerable properties as an array:
+        Object.keys(object)
+    </p>
+    <br />
+    <p> Above are the ways we can manage Objects</p>
+    <p> We can also protect Objects. This section is under managing objects within the "Object Reference" tab on W3Schools.com</p>
+
+    <h2>Changing a property value</h2>
+    <p>
+        // Creating an object
+        const person = {
+        firstName: "Kyle",
+        lastName: "Nunn",
+        language: "EN"
+        };
+
+        //Defining a property in the object
+        Object.defineProperty(person, "language", { value: "YES" });
+        document.getElementById("langdemo").innerHTML = person.language;
+    </p>
+
+    <h2>Changing Meta Data</h2>
+    <p> We can also use defineProperty in other ways too, all working with how we operate with the Objects. </p>
+    <p> Below, we will change some of the way Objects operate. </p>
+
+    <p>
+        This example makes the Object read only:
+        Object.defineProperty(person, "language", { writable: false });
+
+        This example makes language not enumerable:
+        Object.defineProperty(person, "language", { enumerable: false });
+    </p>
+
+    <p id="langdemo"></p>
+
+    <h2> Listing all properties in an Object </h2>
+
+    <p>
+        document.getElementById("alldemo").innerHTML =
+        Object.getOwnPropertyNames(person);
+    </p>
+
+    <p id="alldemo"></p>
+
+    <h2> This example lists all the enumerable properties of an object: </h2>
+    <p>
+        document.getElementById("allenum").innerHTML =
+        Object.keys(person);
+    </p>
+    <p id="allenum"></p>
+
+    <h2> We can also add a new property to an object: </h2>
+    <p>
+        Object.defineProperty(person, "year", { value: "1998" });
+        document.getElementById("newyeardemo").innerHTML = person.year;
+    </p>
+    <p id="newyeardemo"></p>
+
+    <h2> Adding Getters and Setters </h2>
+    <p> the Object.defineProperty() method can also be used to define Getters and Setters</p>
+
+    <p id="fulldemo"></p>
+
+    <h2> A counter example with using Getters and Setters</h2>
+    <p> We have to define the getters and setters first</p>
+    <p id="counterdemo"></p>
+
+
+    <h1> JavaScript Function Definitions </h1>
+    <p> JavaScript Functions are defined with the "function" keyword</p>
+    <p> You can use a function declaration and a function expression</p>
+    <p> Ealier in the tutorial, we learned that functions are declared with the following syntax:</p>
+    <p>
+        function (paramters){ <br />
+        //code to be executed <br />
+        }
+    </p>
+
+    <p> Declared functions are not executed immediately. They are saved for later use, and will be executed with invoked, or called upon.</p>
+    <p id="newFunction"></p>
+    <p> Semi Colons are used to seperate executable JS statement</p>
+    <p> Since a function declaration is not an executable statement, it is not common to end it with a semicolon.</p>
+
+
+    <h2> Function Expressions</h2>
+    <p> A JS function can also be defined using an expression</p>
+    <p> A function expression can be stored in a variable</p>
+    <p id="brandNewFunction"></p>
+    <p> After the new function has been stored in a variable, the variable can now be used a function.</p>
+    <p> We can also create new variables from those functions.</p>
+    <p> Functions sotred in variables do not need variable names, they are always invoke, or called upon, with the variable name.</p>
+
+    <h2> The Function() constructor</h2>
+    <p> In previous examples, we have defined JS functions with the "function" keyword</p>
+    <p> Functions can also be defined with a built in JavaScript constructor called Function().</p>
+    <p id="newestfunc"></p>
+    <p> Most of the time, we can avoid using the "new" keyword in JavaScript</p>
+    <p> The typeof() operator in JS returns "function" for functions.</p>
+    <p> While the above is true, functions can still best be described as objects</p>
+    <p> JavaScript functions have both properties and methods. </p>
+
+
+    <h1> Function Parameters </h1>
+    <h2> Function Parameters and Arguments </h2>
+    <p> Parameters are the <b>NAMES</b> that come after the function</p>
+    <p> Arguments are the <b>values</b> that are actually pushed into the function. Real values. Numbers. Strings.</p>
+    <h2> Parameter Rules </h2>
+    <p>
+        <ul>
+            <li> JavaScript function definitions do not specify data types for parameters </li>
+            <li> JavaScript function do not perform type checking on the passed arguments</li>
+            <li> JavaScript functions do not check the number of arguments received</li>
+        </ul>
+    </p>
+
+    <h2> Default Parameters </h2>
+    <p> If a function is called with missing arguments (less than declared) the missing values are set the <b>undefined.</b> </p>
+    <p> Sometimes this is acceptable, but it is better to pass an default value to the missign parameter.</p>
+    <br />
+    <p> If y is not passed or undefined, then y=10</p>
+    <p> Example: </p>
+    <p id="yfuncdemo"></p>
+
+    <h2> Function Rest Parameter </h2>
+    <p> The rest parameter (...) allows a function to treat an indefinite number of arguments as an array </p>
+    <p id="argdemo"></p>
+
+    <h2> The Arguments Object </h2>
+    <p> JavaScript functions have a built-in object called the Argument object </p>
+    <p> The arg object contains an array of the arguments used when the object was invoked</p>
+    <p> This way we can simply use a function to, for example, find the highest value in a list of numbers. </p>
+    <p id="maxdemo"></p>
+    <p> If a function is called with too many arguments (more than declared), the arguments can be reached using the arguments object</p>
+
+    <h2> Arguments are passed by value</h2>
+    <p>The parameters, in a function call, are the functions arguments</p>
+    <p> JavaScript arguments are passed by value, the function oly gets to know the values, not the arguments locations</p>
+    <p><b>Changes to arguments are not visible, or reflected, outside of the function. </b></p>
+    <p><b>Changes to properties are visible outside of the function. </b></p>
+
+
+    <h1> JavaScript Function Invocation </h1>
+    <p> It is often commonplace to hear to call upon or invoke a function used interchangeably </p>
+    <p> We will use invoke becuase a function can be invoked without being called </p>
+    <p> Take the below JS for example. This function doesn't belong to an object, and thus, "belongs" to the linked html page</p>
+    <p> <b>
+    function myFunction(a, b) { <br />
+    return a * b; <br />
+    } <br />
+    document.getElementById("demo").innerHTML = myFunction(10, 2);
+</b>
+        </p>
+    <p> In a browser the page object is the browser window. The function above automatically becomes a window function. </p>
+
+
+    <h2> The Global Object </h2>
+    <p> When a function is called without an owner object, the value this becomes the global object</p>
+    <p> In a web browser the global object is the browser window</p>
+    <p> Using the window object as a variable can easily crash your program</p>
+
+
+    <h2> Invoking a function as a method </h2>
+    <p> In JS you can define functions as object methods </p>
+
+
+    <h1> JavaScript Function call()</h1>
+    <h2> Method reuse </h2>
+    <p> With the call() method, you can make a method that can be used on different functions.</p>
+    <p> Listen closely, all functions are methods </p>
+    <p> In the below example input, the fullName property is a method within an object</p>
+    <p id="flnamedemo"></p>
+
+
+    <h2> The JavaScript call() method</h2>
+    <p> The call() method is a predefined JavaScript method</p>
+    <p> With call() an object can use a method belonging to another object. It basically just calls the other object and is like aye dog lemme borrow that method from you.</p>
+
+
+    <h2> JavaScript function apply()</h2>
+    <p> With the apply method, you can write a method that can be used on different objects </p>
+    <p> The apply method is similar to the call method, Oh Snap!</p>
+    <p> In JavaScript strict mode, if the first argument of the apply() method is not an object, it becomes the owner of the invoked function. In "non-strict" mode, it becomes the global object.</p>
+
+    <h1> JavaScript function bind()</h1>
+    <p> Sometimes the bind method has to be used to prevent losing "this".</p>
+    <p> When a function is used as a callback, "this" is lost.</p>
+    <p> The below example code will try to display the person name after 3 seconds, but it will return "undefined" instead:</p>
+    <p>
+        <b>
+            const person = { <br />
+            firstName:"John",<br />
+            lastName: "Doe", <br />
+            display: function() { <br />
+            let x = document.getElementById("demo"); <br />
+            x.innerHTML = this.firstName + " " + this.lastName; <br />
+            } <br />
+            } <br />
+            <br />
+            setTimeout(person.display, 3000);
+        </b>
+    </p>
+
+    <p> The bind() method solves this problem</p>
+    <p> In the following example, the bind() method is used the bind person.display to person.</p>
+    <p>
+        <b>
+            const person = { <br />
+            firstName:"John",<br />
+            lastName: "Doe",<br />
+            display: function() {<br />
+            let x = document.getElementById("demo");<br />
+            x.innerHTML = this.firstName + " " + this.lastName;<br />
+            }<br />
+            }<br />
+            <br />
+            let display = person.display.bind(person);<br />
+            setTimeout(display, 3000);
+        </b>
+    </p>
+
+
+    <h1> JavaScript Closures</h1>
+    <p> Global variables can be made local (private) with closures </p>
+    <p> JavaScript variables can belong to the local or global scope</p>
+    <p> Global variables can be made local, or private, with closures. </p>
+
+    <h2> Global Variables </h2>
+    <p> A function can access all variables defined inside that function, like this:</p>
+    <p><b>
+    myFunction();<br />
+
+    function myFunction() { <br />
+    let a = 4; <br />
+    document.getElementById("demo").innerHTML = a * a; <br />
+    }<br />
+    </b></p>
+    <p id="inFunction"></p>
+
+    <p> We can also access variables that were defined outside of the function.</p>
+    <p id="outFunction"></p>
+
+    <h2> Variable Lifetime </h2>
+    <p> Global variables live until the page is discarded, like when you navigate to another page or close the window </p>
+    <p> Local variables have short lives, they are created when a function is invoked. </p>
+
+    <h2> JavaScript Nested Functions </h2>
+    <p> All functions have access to the global scope</p>
+    <p> In fact, in JavaScript, all functions have access to the scope "above" them.</p>
+    <p> JS supports nested functions. Nested functions have access to the scope above them. </p>
+    <p> In this example , the inner function plus() has access to the counter variable in the parent function.</p>
+    <p><b>
+    document.getElementById("demo").innerHTML = add(); <br />
+    function add() { <br />
+    let counter = 0;<br />
+    function plus() {counter += 1;}<br />
+    plus();<br />
+    return counter;<br />
+    }
+</b></p>
+    <p id="additiondemo"></p>
+    <p> The above code could have solved the counter dilemma </p>
+    <p> We need a closure.</p>
+    <p id="closureDemo"></p>
+    <button type="button" onclick="closureFunction()"> Counter </button>
+    <p> A closure is a function having access to the parent scope , even after the parent function has closed.</p>
+
+
+    <h1> JavaScript Classes</h1>
+    <p> JS classes are templates for JS objects</p>
+    <p> Use keyword class to create a class</p>
+    <p> To a class, always add a method named constructor.</p>
+    <p> When using a class, you can use the class to create an object. </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>// Creating an object
+        const person = {
+            firstName: "Kyle",
+            lastName: "Nunn",
+            language: "EN"
+        };
+
+        //Defining a property in the object
+        Object.defineProperty(person, "language", { value: "YES" });
+        document.getElementById("langdemo").innerHTML = person.language;
+
+        // <h2>Changing Meta Data</h2>
+        //  <p> We can also use defineProperty in other ways too, all working with how we operate with the Objects. </p>
+        // <p> Below, we will change some of the way Objects operate. </p>
+
+        //This example makes the Object read only:
+        Object.defineProperty(person, "language", { writable: false });
+
+        //This example makes language not enumerable:
+        Object.defineProperty(person, "language", { enumerable: false });
+
+
+
+        // <h2> Listing all properties in an Object </h2>
+        document.getElementById("alldemo").innerHTML =
+            Object.getOwnPropertyNames(person);
+
+        // <h2> This example lists all the enumerable properties of an object: </h2>
+        document.getElementById("allenum").innerHTML =
+            Object.keys(person);
+
+        // We can also add a new property to an object:
+        Object.defineProperty(person, "year", { value: "1998" });
+        document.getElementById("newyeardemo").innerHTML = person.year;
+
+        // <p> the Object.defineProperty() method can also be used to define Getters and Setters</p>
+        // Example:
+
+        Object.defineProperty(person, "fullName", {
+            get: function () { return this.firstName + " " + this.lastName; }
+        });
+
+        document.getElementById("fulldemo").innerHTML = person.fullName;
+
+        //  <h2> A counter example with using Getters and Setters</h2>
+        const obj = { counter: 0 };
+
+        Object.defineProperty(obj, "reset", {
+            get: function () { this.counter = 0; }
+        });
+        Object.defineProperty(obj, "increment", {
+            get: function () { this.counter++; }
+        });
+        Object.defineProperty(obj, "decrement", {
+            get: function () { this.counter--; }
+        });
+        Object.defineProperty(obj, "add", {
+            set: function (value) { this.counter += value; }
+        });
+        Object.defineProperty(obj, "subtract", {
+            set: function (value) { this.counter -= value; }
+        });
+
+        obj.reset;
+        obj.add = 9;
+        obj.subtract = 3;
+        obj.increment;
+        obj.increment;
+
+        document.getElementById("counterdemo").innerHTML = obj.counter;</script>
+
+    <script>// This Script is for the Functions group
+        // <p> JavaScript Functions are defined with the "function" keyword</p>
+        // <p> You can use a function declaration and a function expression</p>
+        //  <p> Ealier in the tutorial, we learned that functions are declared with the following syntax:</p>
+        //  <p> function (paramters){ <br />
+        //code to be executed <br />
+        //  }
+        // </p>
+
+        // <p> Declared functions are not executed immediately. They are saved for later use, and will be executed with invoked, or called upon.</p>
+        // Example:
+
+        function newFunction(a, b) {
+            return a * b;
+        }
+
+        let x = newFunction(4, 5);
+        document.getElementById("newFunction").innerHTML = x;
+
+
+                       // <h2> Function Expressions</h2>
+                    // <p> A JS function can also be defined using an expression</p>
+                    // <p> A function expression can be stored in a variable</p>
+                    cosnt y = function (i, j) { return i * j };
+        document.getElementById("brandNewFunction").innerHTML = y;
+
+        // <p> After the new function has been stored in a variable, the variable can now be used a function.</p>
+        //<p> We can also create new variables from those functions.</p>
+        //<p> Functions sotred in variables do not need variable names, they are always invoke, or called upon, with the variable name.</p>
+
+        //<h2> The Function() constructor</h2>
+        //<p> In previous examples, we have defined JS functions with the "function" keyword</p>
+        //<p> Functions can also be defined with a built in JavaScript constructor called Function().</p>
+
+        const myNewestFunction = new Function("a", "b", "return a * b");
+        document.getElementById("newestfunc").innerHTML = myNewestFunction(20, 30);
+
+
+        // <p> Most of the time, we can avoid using the "new" keyword in JavaScript</p>
+        //  <p> The typeof() operator in JS returns "function" for functions.</p>
+        //  <p> While the above is true, functions can still best be described as objects</p>
+
+
+        //<h1> Function Parameters </h1>
+        //<h2> Function Parameters and Arguments </h2>
+        //<p> Parameters are the <b>NAMES</b> that come after the function</p>
+        //<p> Arguments are the <b>values</b> that are actually pushed into the function. Real values. Numbers. Strings.</p>
+        //<h2> Parameter Rules </h2>
+        //<p>
+        //<ul>
+        // <li> JavaScript function definitions do not specify data types for parameters </li>
+        // <li> JavaScript function do not perform type checking on the passed arguments</li>
+        // <li> JavaScript functions do not check the number of arguments received</li>
+        // </ul>
+        // </p></script>
+
+    <script>// <h2> Default Parameters </h2>
+        // <p> If a function is called with missing arguments (less than declared) the missing values are set the <b>undefined.</b> </p>
+        // <p> Sometimes this is acceptable, but it is better to pass an default value to the missign parameter.</p>
+        // <br />
+        // <p> Example: </p>
+
+
+        function yFunction(x, y = 10) {
+            return x + y;
+        }
+
+        document.getElementById("yfuncdemo").innerHTML = yFunction(5);
+
+        // The rest parameter (...) allows a function to treat an indefinite number of arguments into an array
+
+        function sum(...args) {
+            let sum = 0;
+            for (let arg of args) sum += arg;
+            return sum;
+        }
+
+        let x = sum(1, 2, 3, 4, 5, 6, 7);
+
+        document.getElementById("argdemo").innerHTML = x;
+
+        /// Using arguments object to find the highest value in an arary:
+        function findMax() {
+            let max = -Infinity;
+            for (let i = 0; i < arguments.length; i++) {
+                if (arguments[i] > max) {
+                    max = arguments[i];
+                }
+            }
+            return max;
+        }
+        document.getElementById("maxdemo").innerHTML = findMax(4, 10, 6);
+
+        const theObject = {
+            fName: "Babe",
+            lName: "Ruth",
+            flname: function() {
+                return this.fName + " " + this.lName;
+            }
+        }
+        document.getElementById("flnamedemo").innerHTML = theObject.flname();
+
+       // <h1> JavaScript function bind()</h1>
+    //<p> Sometimes the bind method has to be used to prevent losing "this".</p>
+   // <p> When a function is used as a callback, "this" is lost.</p>
+   // <p> The below example code will try to display the person name after 3 seconds, but it will return "undefined" instead:</p>
+
+        //const dude = {
+        //    firName: "Big",
+        //    lasName: "Lebowski",
+        //    display: function () {
+        //        let x = document.getElementById("thedude");
+        //        x.innerHTML = this.firName + " " + this.lasName;
+        //    }
+        //}
+
+        //setTimeout(person.display, 3000);
+
+        //   <p> The bind() method solves this problem</p>
+       //  <p> In the following example, the bind() method is used the bind person.display to person:</p>
+
+
+        const person = {
+            firstName: "John",
+            lastName: "Doe",
+            display: function () {
+                let x = document.getElementById("binddemo");
+                x.innerHTML = this.firstName + " " + this.lastName;
+            }
+        }
+
+        let display = person.display.bind(person);
+        setTimeout(display, 3000);
+    </script>
+
+    <script>
+        // A function can access variables defined inside the function, like this:
+        insideFunction();
+
+        function insideFunction() {
+            let a = 4;
+            document.getElementById("inFunction").innerHTML = a * a;
+        }
+
+        // But a function  can also access variables defined outside of the function, like this:
+        let b = 5;
+        outsideFunction();
+       
+
+        function outsideFunction() {  
+            document.getElementById("outFunction").innerHTML = b;
+
+        }
+
+        function add() {
+            let counter = 0;
+            function plus() { counter = + 1;}
+            plus();
+            return counter;
+        }
+        document.getElementById("additiondemo").innerHTML = add();
+
+
+        // <p> The above code could have solved the counter dilemma </p>
+        // <p> We need to closure.</p>
+
+        const addit = (function () {
+            let counter = 0;
+            return function () { counter += 1; return counter; }
+        })();
+
+        function closureFunction() {
+            document.getElementById("closureDemo").innerHTML = addit();
+        }
+
+        
+    //<h1> JavaScript Classes</h1>
+    //<p> JS classes are templates for JS objects</p>
+    //<p> Use keyword class to create a class</p>
+    //<p> To a class, always add a method named constructor.</p>
+
+        class Car {
+            constructor(carname, caryear) {
+                this.carname = carname;
+                this.caryear = caryear;
+            }
+        }
+
+        // The example above creates a class named Car
+        // It has two initial properties, carname and caryear
+       
+    </script>
 
 
 
