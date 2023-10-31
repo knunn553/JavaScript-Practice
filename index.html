@@ -4,8 +4,8 @@
 <head>
 
     <title>Practice JS</title>
-    <link href="jspractice.css" rel="stylesheet" type="text/css" />
-    <script src="jspractice.js" type="module" defer></script>
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <script src="script.js" type="module" defer></script>
     <script src="person.js" type="module"  ></script>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -753,13 +753,14 @@
     <p> It is often commonplace to hear to call upon or invoke a function used interchangeably </p>
     <p> We will use invoke becuase a function can be invoked without being called </p>
     <p> Take the below JS for example. This function doesn't belong to an object, and thus, "belongs" to the linked html page</p>
-    <p> <b>
-    function myFunction(a, b) { <br />
-    return a * b; <br />
-    } <br />
-    document.getElementById("demo").innerHTML = myFunction(10, 2);
-</b>
-        </p>
+    <p>
+        <b>
+            function myFunction(a, b) { <br />
+            return a * b; <br />
+            } <br />
+            document.getElementById("demo").innerHTML = myFunction(10, 2);
+        </b>
+    </p>
     <p> In a browser the page object is the browser window. The function above automatically becomes a window function. </p>
 
 
@@ -836,14 +837,16 @@
 
     <h2> Global Variables </h2>
     <p> A function can access all variables defined inside that function, like this:</p>
-    <p><b>
-    myFunction();<br />
+    <p>
+        <b>
+            myFunction();<br />
 
-    function myFunction() { <br />
-    let a = 4; <br />
-    document.getElementById("demo").innerHTML = a * a; <br />
-    }<br />
-    </b></p>
+            function myFunction() { <br />
+            let a = 4; <br />
+            document.getElementById("demo").innerHTML = a * a; <br />
+            }<br />
+        </b>
+    </p>
     <p id="inFunction"></p>
 
     <p> We can also access variables that were defined outside of the function.</p>
@@ -858,15 +861,17 @@
     <p> In fact, in JavaScript, all functions have access to the scope "above" them.</p>
     <p> JS supports nested functions. Nested functions have access to the scope above them. </p>
     <p> In this example , the inner function plus() has access to the counter variable in the parent function.</p>
-    <p><b>
-    document.getElementById("demo").innerHTML = add(); <br />
-    function add() { <br />
-    let counter = 0;<br />
-    function plus() {counter += 1;}<br />
-    plus();<br />
-    return counter;<br />
-    }
-</b></p>
+    <p>
+        <b>
+            document.getElementById("demo").innerHTML = add(); <br />
+            function add() { <br />
+            let counter = 0;<br />
+            function plus() {counter += 1;}<br />
+            plus();<br />
+            return counter;<br />
+            }
+        </b>
+    </p>
     <p id="additiondemo"></p>
     <p> The above code could have solved the counter dilemma </p>
     <p> We need a closure.</p>
@@ -880,6 +885,242 @@
     <p> Use keyword class to create a class</p>
     <p> To a class, always add a method named constructor.</p>
     <p> When using a class, you can use the class to create an object. </p>
+    <p><b>Class example:</b></p>
+    <p id="brandnewCar"></p>
+    <p> JavaScript Class Methods Example:</p>
+    <p id="lamboagedemo"></p>
+    <p> You can also send parameters into classes </p>
+    <p id="lambonewagedemo"></p>
+
+    <h2>// Use "strict"</h2>
+    <p>
+        // The syntax in classes must be written in "strict mode" <br />
+        // You will get an error if you don't follow the strict mode rules <br />
+        // You will get an error if you use a variable without declaring it <br />
+    </p>
+    <p>
+        <b>
+            class Car { <br />
+            constructor(name, year) { <br />
+            this.name = name;<br />
+            this.year = year;<br />
+            <br />
+            }<br />
+            age() {<br />
+            // date = new Date();  // This will not work<br />
+            const date = new Date(); // This will work<br />
+            return date.getFullYear() - this.year;<br />
+            }<br />
+            }<br />
+            <br />
+            const myCar = new Car("Ford", 2014);<br />
+            document.getElementById("demo").innerHTML =<br />
+            "My car is " + myCar.age() + " years old.";<br />
+        </b>
+    </p>
+
+
+    <h1> JavaScript Class Inheritance </h1>
+    <h2> Class Inheritance </h2>
+    <p> To create a class inheritance, use the extends keyword</p>
+    <p> Inheritance Demo:</p>
+    <p id="indemo"></p>
+    <p>
+        // The super method refers to the parent class <br />
+        // By calling the super() method in the constructor method, we call the parent's constructor method and get access to the parent's methods and properties <br />
+        // Innheritance is good for code reusability. Reuse properties and methods of an existing class when you want to create a new class. <br />
+    </p>
+
+    <h2> Getters and Setters </h2>
+    <p> Classes also allows you to use Getters and Setters</p>
+    <p> It can be smart to use getters and setters in your properties\, especially if you want to do something special with the value before returning them, or before you set them.</p>
+    <p> To add getters and setters in the class, just add the get() and set() keywords </p>
+    <p> Get Demo:</p>
+    <p id="getdemo"></p>
+
+    <h2> Hoisting </h2>
+    <p> Unlike functions, and other JS declarations, class declarations are not hosited.</p>
+    <p> This means that a class must be declared before we can use it.</p>
+
+    <h2> JavaScript Static Methods </h2>
+    <p> Static class methods are defined on the class itself.</p>
+    <p> You can't all a static method on an object, only on an object class</p>
+    <p> Static Example:</p>
+    <p id="staticdemo"></p>
+
+    <p> If you want to use the myCar object inside the static method, you can send it as a parameter:</p>
+    <p id="static2demo"></p>
+
+    <h1> JavaScript Callbacks</h1>
+    <p> I will call back later!</p>
+    <p> A callback function is a function passed as an argument to another function</p>
+    <p> This technique allows one function to call another function.</p>
+    <p> A callback function can run after another function has finished.</p>
+
+    <h2> Function Sequence </h2>
+    <p> Javascript functions are executed in the sequence they are called, not in the sequence they are defined</p>
+    <p> Callback demo example:</p>
+    <p id="callbackdemo"></p>
+
+    <p> This example will end up saying hello, where the last one said Goodbye</p>
+    <h2> Sequence control </h2>
+    <p> Sometimes you would like to have better control over when you execute a function.</p>
+    <p> Suppose you want to do a calculation, and then display the result. </p>
+    <p> We could call a calculator function (myCalculator), save the result, and then call another function, myDisplayer(), to display the result.</p>
+    <p> Call back demo2 Example</p>
+    <p id="callbackdemo2"></p>
+    <p> As an alternative to the above appraoch, we could call the calculator function myCalculator(), and then let the calculator function call the display function myDisplay()</p>
+    <p>
+        // The problem with the first example above, is that you have to call two functions to display the result<br />
+        // The problem with the second example, is that you cannot prevent the calculator function from displaying the result <br />
+        // Now, it's time to bring a the CALLBACK BABY!!! <br />
+    </p>
+    <h2> JavaScript Callbacks </h2>
+    <p> A Callback is a function passed as an argument to another function</p>
+    <p> Using a callback, you could call the calculator function with a callback function (myCallBack), and let the calculator function run the callback after the calculator function is finished.</p>
+    <p> First call back demo</p>
+    <p id="firstcallbackdemo"></p>
+    <p> Another exmample of a callback with numbers</p>
+    <p id="doubledemo"></p>
+    <p>
+        // In the example above, (x) => x >= 0; is a callback function. <br />
+        // It is passed to removeNeg() as an argument. <br />
+        // Where callback functions really shine are in asynchronous function, where one function has to wait for another function (like waiting for a file to load) <br />
+    </p>
+
+    <h1> Asynchronous JavaScript</h1>
+    <p> A Call back will call ya later, but Asynchronous is like, I will finish later. Shows the most important parts of the page first and simultaneously loads the JS Asynchronously. </p>
+    <p> This is functions running in parallel with other functions.</p>
+    <p> A good example of this is setTimout()</p>
+    <p> The examples in the previous chapter were very simplified</p>
+    <p> The purpose of the examples was to demonstrate callback functions </p>
+    <h2> Waiting for a timeout </h2>
+    <p> When using the JavaScript function setTimeout(), you can specify a callback function to be executed on time out. </p>
+    <p> setTimeout function example</p>
+    <p id="settimeoutdemo"></p>
+
+    <p>
+        // In the example above, setFunction is used as a callback. He said - I'll call you later! <br />
+        // He said I'll put you in as an argument right now, but I'll call you later! <br />
+        // When you pass a function as an argument, remember not to use parenthesis. <br />
+        // When you pass a function as an argument, understand that you should not use parenthesis in JS. <br />
+        // Instead of passing the name of a function as an argument to that same function, you can always pass a whole function instead.<br />
+        //
+    </p>
+
+    <h2> Waiting for Intervals:</h2>
+    <p> When using the JS Function setInterval(), you can specify a callback function to be executed for each interval.</p>
+    <p> When using the JS function setInterval(), you can specify a callback function to be executed for each interval. </p>
+    <p> Set Interval Example</p>
+    <p><b> Question, how to we convert the JavaScript military time? </b></p>
+    <p id="intfunction"></p>
+    <p id="convertfunctiondemo"></p>
+
+    <p>
+        // Call back alternatives <br />
+        // With asynchronous programming, JS programs can start long running tasks, and continue running other taks in parallel. <br />
+        // But asynchronous programs are difficult to write and difficult to debug.<br />
+        // Because of this, most modern JS async programs don't use callbacks. Instead, modern JS programming uses promises over callbacks. <br />
+    </p>
+
+
+    <h1> JavaScript Promises </h1>
+    <p> This is basically saying "I promise a result!"</p>
+    <p> "producing code" is code that can take some time</p>
+    <p> "Consuming code is code that must wait for the result"</p>
+    <p> A promise is a JS object that links producing and consuming code.</p>
+    <p> A JS promise object contains both the producing code and calls to the consuming code.</p>
+    <p> When the producing code obtains the result, it should call one of the two callbacks:</p>
+    <p>
+        <ul>
+            <li> Result: Success, Call: myResolve(result value)</li>
+            <li> Result: Error, Call: myReject(error object)</li>
+        </ul>
+    </p>
+    <p>
+        A JS Promise object can be :
+        <ul>
+            <li>Pending</li>
+            <li> Fulfilled</li>
+            <li> Rejected </li>
+        </ul>
+    </p>
+    <p> The promise object contaisn two results: state and result</p>
+    <p> Pending is undefined</p>
+    <p> Fulfilled is result value</p>
+    <p> Rejected is an error object </p>
+    <p><b> You cannot access the promise properties state and result.</b></p>
+    <p> You must use a promise method to handle promises.</p>
+    <p> Promise Demo Code: </p>
+    <p id="promisedemo"></p>
+
+    <h1> JavaScript async and await make promises easier to write </h1>
+    <p> async makes a function return a promise</p>
+    <p> await makes a function wait for a promise</p>
+    <p> The word async before a function makes the function return a promise </p>
+    <p> Async demo:</p>
+    <p id="syncdemo"></p>
+    <h2> Await Syntax</h2>
+    <p> The await keyword can only be used inside an async function</p>
+    <p> The await keyword makes the function pause the execution and wait for a resolved promise before it continues.</p>
+    <p> Await promise example:</p>
+    <p id="awaitpromise"> </p>
+    <p> Await waiting for a timeout example:</p>
+    <p id="awaitpromisetime"></p>
+
+
+    <h1> JAVASCRIPT HTML DOM</h1>
+    <P> When a web page is loaded, the browser creates a Document Object Model of that page</P>
+    <p> The HTML DOM method is constructed as a tree of objects.</p>
+    <p> The W3C dom standard is seperated into three different types: HTML DOM, XML DOM, and Core DOM.</p>
+    <p> It is imporatnt to note that we have methods and properties in JS</p>
+    <p> getElementById is a method and innerHTML is a property.</p>
+    <p> The most common way to access an HTML element is to use the id of the element.</p>
+    <p> The easiest way to get the content of an HTML element is to use the innerHTML property</p>
+    <p> The innerHTML property can be used to get or change any HTML element including html or body</p>
+    <p> Often, with JavaScript, you want to manipulated HTML elements </p>
+    <p> To do this, we have to find the elements first.</p>
+
+
+
+    <h1> JavaScript Forms </h1>
+    <h2> JavaScript Form Validation</h2>
+    <p> From this point forward, this HTML document will be using an external JS file.</p>
+    <p> HTML form validation can be done by JS.</p>
+    <p> If a form field (fname) is empty, this function alerts a message, and returns false, and prevents the form from being submitted to say a PHP or Node.js document.</p>
+
+  <form name="nameForm" action="" onsubmit="return validformFunction()" method="post">
+      Name: <input type="text" name="fname" />
+      <input type="submit" value="Submit" />
+  </form>
+
+    <p><i>Note:</i> Everytime the user is inputting anything whether it be text or their mouse input, there needs to be an input element for that input.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -988,10 +1229,10 @@
         document.getElementById("newFunction").innerHTML = x;
 
 
-                       // <h2> Function Expressions</h2>
-                    // <p> A JS function can also be defined using an expression</p>
-                    // <p> A function expression can be stored in a variable</p>
-                    cosnt y = function (i, j) { return i * j };
+                                               // <h2> Function Expressions</h2>
+                                            // <p> A JS function can also be defined using an expression</p>
+                                            // <p> A function expression can be stored in a variable</p>
+                                            cosnt y = function (i, j) { return i * j };
         document.getElementById("brandNewFunction").innerHTML = y;
 
         // <p> After the new function has been stored in a variable, the variable can now be used a function.</p>
@@ -1064,16 +1305,16 @@
         const theObject = {
             fName: "Babe",
             lName: "Ruth",
-            flname: function() {
+            flname: function () {
                 return this.fName + " " + this.lName;
             }
         }
         document.getElementById("flnamedemo").innerHTML = theObject.flname();
 
-       // <h1> JavaScript function bind()</h1>
-    //<p> Sometimes the bind method has to be used to prevent losing "this".</p>
-   // <p> When a function is used as a callback, "this" is lost.</p>
-   // <p> The below example code will try to display the person name after 3 seconds, but it will return "undefined" instead:</p>
+        // <h1> JavaScript function bind()</h1>
+        //<p> Sometimes the bind method has to be used to prevent losing "this".</p>
+        // <p> When a function is used as a callback, "this" is lost.</p>
+        // <p> The below example code will try to display the person name after 3 seconds, but it will return "undefined" instead:</p>
 
         //const dude = {
         //    firName: "Big",
@@ -1087,7 +1328,7 @@
         //setTimeout(person.display, 3000);
 
         //   <p> The bind() method solves this problem</p>
-       //  <p> In the following example, the bind() method is used the bind person.display to person:</p>
+        //  <p> In the following example, the bind() method is used the bind person.display to person:</p>
 
 
         const person = {
@@ -1100,11 +1341,9 @@
         }
 
         let display = person.display.bind(person);
-        setTimeout(display, 3000);
-    </script>
+        setTimeout(display, 3000);</script>
 
-    <script>
-        // A function can access variables defined inside the function, like this:
+    <script>// A function can access variables defined inside the function, like this:
         insideFunction();
 
         function insideFunction() {
@@ -1115,16 +1354,16 @@
         // But a function  can also access variables defined outside of the function, like this:
         let b = 5;
         outsideFunction();
-       
 
-        function outsideFunction() {  
+
+        function outsideFunction() {
             document.getElementById("outFunction").innerHTML = b;
 
         }
 
         function add() {
             let counter = 0;
-            function plus() { counter = + 1;}
+            function plus() { counter = + 1; }
             plus();
             return counter;
         }
@@ -1141,25 +1380,404 @@
 
         function closureFunction() {
             document.getElementById("closureDemo").innerHTML = addit();
-        }
-
-        
-    //<h1> JavaScript Classes</h1>
-    //<p> JS classes are templates for JS objects</p>
-    //<p> Use keyword class to create a class</p>
-    //<p> To a class, always add a method named constructor.</p>
+        }</script>
+    <script>//<h1> JavaScript Classes</h1>
+        //<p> JS classes are templates for JS objects</p>
+        //<p> Use keyword class to create a class</p>
+        //<p> To a class, always add a method named constructor.</p>
 
         class Car {
             constructor(carname, caryear) {
                 this.carname = carname;
                 this.caryear = caryear;
             }
+            age() {
+                const date = new Date();
+                return date.getFullYear() - this.caryear;
+            }
         }
 
         // The example above creates a class named Car
         // It has two initial properties, carname and caryear
-       
-    </script>
+        // JavaScript class is not an object, but a template for an object
+        // When you have a class, you can use the class to create JS objects
+        // In the below example, we'll work from the above create Car class
+
+        //const myCar1 = { carname: "Lambo", caryear= 2020 };
+        //const myCar2 = { carname: "Ferrari", caryear = 2019 };
+        const myCar1 = new Car("Lambo", 2018);
+        const myCar2 = new Car("Ferrari", 2018);
+
+        document.getElementById("brandnewCar").innerHTML = "I will have a " + myCar1.carname + " and a " + myCar2.carname;
+
+
+
+        // The above example uses the Car class to create two car Objects
+        // The constructor method is called automatically when a new object is created
+        // The Constructor Method
+        // The constructor method is a special method:
+        // It has to have the exact name "Constructor"
+        // It is executed automatically when a new object is created
+        // It is used to initialize object properties
+        // If a constructor method is not defined, JS will auto define it
+        // class methods are created with the same syntax as object methods
+        // Use keyword class to create a class
+        // Always add a constructor method
+        // Then add any number of methods:
+
+        // Example
+
+        // class Classname {
+        // constructor() {... }
+        // method1(){... }
+        // method2(){...}
+        // }
+
+        // Creating a class method Age that returns the cars age
+        // We will input the method age into the original code at the top of this script
+        // Will we use the original cars Lambo and Ferrari as classes
+
+        document.getElementById("lamboagedemo").innerHTML = "The lambo is " + myCar1.age() + " years old. ";
+
+        // We can also send parameters to class methods:
+        // We'll pass a parameter into the age method above:
+
+        class Cars {
+            constructor(name, year) {
+                this.name = name;
+                this.year = year;
+            }
+            age(x) {
+                return x - this.year;
+            }
+        }
+
+        const date = new Date();
+        let year = date.getFullYear();
+
+        document.getElementById("lambonewagedemo").innerHTML = "The lambo is still " + myCar1.age(year) + " years old. ";
+
+        // Use "strict"
+        // The syntax in classes must be written in "strict mode"
+        // You will get an error if you don't follow the strict mode rules
+        // You will get an error if you use a variable without declaring it</script>
+
+    <script>// <h1> JavaScript Class Inheritance </h1>
+        // <h2> Class Inheritance </h2>
+        // <p> To create a class inheritance, use the extends keyword</p>
+        // A class created with a class inheritance inherits all the methods from another class:
+        // The "super" method to call the parents constructor function, in this case, brand.
+
+        class forCar {
+            constructor(brand) {
+                this.carname = brand;
+            }
+            present() {
+                return "I have a " + this.carname;
+            }
+        }
+
+        class Model extends forCar {
+            constructor(brand, mod) {
+                super(brand);
+                this.Model = mod;
+            }
+            show() {
+                return this.present() + ", It is a " + this.model;
+            }
+        }
+        const myCar = new Model("Lambo", "Huracan");
+        document.getElementById("indemo").innerHTML = myCar.show();
+
+        // The super method refers to the parent class
+        // By calling the super() method in the constructor method, we call the parent's constructor method and get access to the parent's methods and properties
+        // Innheritance is good for code reusability. Reuse properties and methods and an existing class when you want to create a new class.</script>
+    <script>// <h2> Getters and Setters </h2>
+        // <p> Classes also allows you to use Getters and Setters</p>
+        // <p> It can be smart to use getters and setters in your properties\, especially if you want to do something special with the value before returning them, or before you set them.</p>
+        // <p> To add getters and setters in the class, just add the get() and set() keywords </p>
+
+        // Create a getter and setter for the "carname" property
+
+        class lambCar {
+            constructor(brand) {
+                this.carname = brand;
+            }
+            get cnam() {
+                return this.carname;
+            }
+            set cnam(x) {
+                this.carname = x;
+            }
+        }
+        const theCar = new lambCar("Ferrari");
+        document.getElementById("getdemo").innerHTML = theCar.cnam;
+
+        // In the same JavaScript that is connected to the same HTML, you have to change the constant object and class. You can't have two of the same.
+        // Maybe you can, but the text wasn't showing up in the HTML with the same Car class and myCar object defined the same as above.
+        // Even if the getter is a method, you do not use paranthesis when you want to use the property value.
+        // The name of the getter setter method cannot be the same as the name of the property, in this case, carname.
+        // Many programmers use an underscore character "_" before the property name the seperate the getter/setter from the actual property:
+
+
+        // <h2> Hoisting </h2>
+        // <p> Unlike functions, and other JS declarations, class declarations are not hosited.</p>
+        // <p> This means that a class must be declared before we can use it.</p></script>
+    <script>//<h2> JavaScript Static Methods </h2>
+        //<p> Static class methods are defined on the class itself.</p>
+        //<p> You can't all a static method on an object, only on an object class</p>
+
+        class Ride {
+            constructor(name) {
+                this.name = name;
+            }
+            static hello() {
+                return "What's crackalackin!?";
+            }
+        }
+
+        const oldCar = new Ride("Pontiac");
+
+        document.getElementById("staticdemo").innerHTML = Ride.hello();
+        // Here, we called hello() static method on the Ride class.
+        // We would not have been able to call it on the oldCar object.
+        // If we want to use the oldCar object inside the static method, you can send it as a parameter:
+
+        class slowRide {
+            constructor(name) {
+                this.name = name;
+            }
+            static hello(x) {
+                return "Hey There, " + x.name;
+            }
+        }
+
+        const Whip = new slowRide("Cruier");
+
+        document.getElementById("static2demo").innerHTML = Ride.hello(Whip);</script>
+    <script>//  <h1> JavaScript Callbacks</h1>
+        //  <p> I will call back later!</p>
+        //  <p> A callback function is a function passed as an argument to another function</p>
+        //  <p> This technique allows one function to call another function.</p>
+        //  <p> A callback function can run after another function has finished.</p>
+
+        //  <h2> Function Sequence </h2>
+        //  <p> Javascript functions are executed in the sequence they are called, not in the sequence they are defined</p>
+
+        function myDisplayer(some) {
+            document.getElementById("callbackdemo").innerHTML = some;
+        }
+
+        function myFirst() {
+            myDisplayer("Hello");
+        }
+
+        function mySecond() {
+            myDisplayer("Googbye");
+        }
+
+        mySecond();
+        myFirst();
+
+
+        // <p> This example will end up saying hello, where the last one said Goodbye</p>
+        // If we switch the two functions, the display will by Hello. We just have to switch myFirst and mySecond. Functions are displayed in the order they are called.
+
+        // <h2> Sequence control </h2>
+        // <p> Sometimes you would like to have better control over when you execute a function.</p>
+        // <p> Suppose you want to do a calculation, and then display the result. </p>
+        // <p> We could call a calculator function (myCalculator), save the result, and then call another function, myDisplayer(), to display the result.</p>
+
+
+        function myDisplayer(something) {
+            document.getElementById("callbackdemo2").innerHTML = something;
+        }
+
+        function myCalculator(num1, num2) {
+            let sum = num1 * num2;
+            myDisplayer(sum);
+        }
+
+        myCalculator(8, 6);
+
+
+        // <p> As an alternative to the above appraoch, we could call the calculator function myCalculator(), and then let the calculator function call the display function myDisplay()</p>
+        // The problem with the first example above, is that you have to call two functions to display the result
+        // The problem with the second example, is that you cannot prevent the calculator function from displaying the result
+        // Now, it's time to bring a the CALLBACK BABY!!!
+
+        //<h2> JavaScript Callbacks </h2>
+        //<p> A Callback is a function passed as an argument to another function</p>
+        //<p> Using a callback, you could call the calculator function with a callback function (myCallBack), and let the calculator function run the callback after the calculator function is finished.</p>
+
+
+        // CallBack Example
+        function myDisplayer1(thing) {
+            document.getElementById("firstcallbackdemo").innerHTML = thing;
+        }
+
+        function mySecondCalc(numero1, numero2, callBack) {
+            let newsum = numero1 + numero2;
+            callBack(newsum);
+        }
+
+        mySecondCalc(7, 6, myDisplayer1);
+
+        // In the example above, myDisplayer1 is an example of a callback function
+        // It is passed to mySecondCalc as an argument
+        // When you pass a function as an argument, remember that we do not use parenthesis here.
+
+
+        // Another useful example
+        const myNumbers = [2, -3, 4, 5, -10, 9];
+
+        const posNumbers = removeNeg(myNumbers, (x) => x >= 0);
+        document.getElementById("doubledemo").innerHTML = posNumbers;
+
+        // Keeping only positive numbers
+        function removeNeg(numbers, callback) {
+            const myArray = [];
+            for (const x of numbers) {
+                if (callback(x)) {
+                    myArray.push(x);
+                }
+            }
+            return myArray;
+        }
+
+        // In the example above, (x) => x >= 0; is a callback function.
+        // It is passed to removeNeg() as an argument.
+        // Where callback functions really shine are in asynchronous function, where one function has to wait for another function (like waiting for a file to load)
+
+        //<h1> Asynchronous JavaScript</h1>
+        //<p> A Call back will call ya later, but Asynchronous is like, I will finish later. Shows the most important parts of the page first and simultaneously loads the JS Asynchronously. </p>
+        //<p> This is functions running in parallel with other functions.</p>
+        //<p> A good example of this is setTimout()</p>
+        //<p> The examples in the previous chapter were very simplified</p>
+        //<p> The purpose of the examples was to demonstrate callback functions </p>
+        //<h2> Waiting for a timeout </h2>
+        //<p> When using the JavaScript function setTimeout(), you can specify a callback function to be executed on time out. </p>
+        //<p> setTimeout function example</p>
+
+        setTimeout(setFunction, 5000);
+        function setFunction() {
+            document.getElementById("settimeoutdemo").innerHTML = "Hey Baby!";
+        }
+
+        // In the example above, setFunction is used as a callback. He said - I'll call you later!
+        // He said I'll put you in as an argument right now, but I'll call you later!
+        // When you pass a function as an argument, remember not to use parenthesis.
+        // When you pass a function as an argument, understand that you should not use parenthesis in JS.
+        // Instead of passing the name of a function as an argument to that same function, you can always pass a whole function instead.
+
+
+        // Waiting for intervals
+        // When using the JavaScript function setInterval(), you can specify a callback function to be executed for each interval
+
+        // Example
+        setInterval(intFunction, 1000);
+        // This is setting an interval for the intFunction function every second. JS represents time in milliseconds
+
+        function intFunction() {
+            let d = new Date();
+            document.getElementById("intfunction").innerHTML =
+                d.getHours() + ":" +
+                d.getMinutes() + ":" +
+                d.getSeconds();
+
+        }
+
+        // In the above example, the intFunction() is used as a callback
+        // intFunction() is passed to the setInterval() as an argument. Notice the lack of parenthesis.
+        // It works as a clock becuase setInterval  works every 1 secondd, so the program is giving off the decpetion of a clock. It is a clock.
+
+        // Call back alternatives
+        // With asynchronous programming, JS programs can start long running tasks, and continue running other taks in parallel.
+        // But asynchronous programs are difficult to write and difficult to debug.
+        // Because of this, most modern JS async programs don't use callbacks. Instead, modern JS programming uses promises over callbacks.</script>
+    <script>//<h1> JavaScript Promises </h1>
+        //<p> This is basically saying "I promise a result!"</p>
+        //<p> "producing code" is code that can take some time</p>
+        //<p> "Consuming code is code that must wait for the result"</p>
+        //<p> A promise is a JS object that links producing and consuming code.</p>
+        //<p> A JS promise object contains both the producing code and calls to the consuming code.</p>
+        //<p> Example Promise Syntax </p>
+
+        //let myPromise = new Promise(function (myResolve, myReject) {
+        //    // producing code may take some time
+
+        //    myResolve(); // When successful
+        //    myReject(); // When error surfaces
+        //});
+
+        //// Consuming code, must wait for the fulfilled promise
+        //myPromise.then(
+        //    function (value) {//Code if successful },
+        //        function(error) {//Code if error }
+        //);
+
+        // then method of the promise takes up two arguments: the callback functions for both the fulfilled and rejected promises.
+        // Promise.then() takes two arguments, the successful callback and the failure callback
+        // Both are optional, so you can add a callback for success and failure or just one.
+
+        // JavaScript Promise examples: waiting for a timeout or waiting for a file
+        // Waiting for a timeout:
+        // Example using promise with timeout:
+
+        const myPromise = new Promise(function (Resolve, Reject) {
+            setTimeout(function () { Resolve("Hey There!"); }, 5000);
+        })
+        myPromise.then(function (value) {
+            document.getElementById("promisedemo").innerHTML = value;
+        })
+
+
+        //< h1 > JavaScript async and await make promises easier to write </h1 >
+        //<p> async makes a function return a promise</p>
+        //<p> await makes a function wait for a promise</p>
+        //<p> The word async before a function makes the function return a promise </p>
+
+        // async function() myFunction{
+        // return "Hello";
+        // is the same as
+        // function() myFunction{
+        // return Promise.resolve("Hello");
+        //}
+
+        function syncDisplay(some) {
+            document.getElementById("syncdemo").innerHTML = some;
+        }
+        async function mineFunction() { return "Sup bruh"; }
+
+        mineFunction().then(
+            function (value) { syncDisplay(value); }
+        );
+
+        //<h2> Await Syntax</h2>
+        //<p> The await keyword can only be used inside an async function</p>
+        //<p> The await keyword makes the function pause the execution and wait for a resolved promise before it continues.</p>
+        // The two arguments (resolve and reject) are predefined by JS - we don't need to recreate them.
+
+        async function newDisplay() {
+            let newPromise = new Promise(function (resolve) {
+                resolve("Love you man!")
+            });
+            document.getElementById("awaitpromise").innerHTML = await newPromise;
+        }
+        newDisplay();
+
+        // Await waiting for a timeout
+
+        async function timeDisplay() {
+            let waitPromise = new Promise(function (resolve) {
+                setTimeout(function () { resolve("hot dog hot dog hot diggity dog"); }, 3000);
+            });
+            document.getElementById("awaitpromisetime").innerHTML = await waitPromise;
+        }
+        timeDisplay();
+
+
+            //</script>
 
 
 

@@ -389,6 +389,61 @@ for (let i = 0; i < 5; i++) {
 
 
 
+    // JavaScript Forms
+    // JavaScript Form Validation
+    // Taking a look at JavaScript forms and form validation
+    // In this examaple, "return false" means if the user input some sort of string value, return false, or don't return anything. Let the system run as planned.
+
+
+    function validformFunction() {
+        let x = document.forms["nameForm"]["fname"].value;
+        if (x == "") {
+            alert("Put you damn name in the box!");
+            return false;
+        }
+    }
+
+    // JavaScript Forms
+    // JavaScript Form Validation with Numbers
+    // Input numbers 5-30. Anything below, above, or null will return an error.
+
+    function numberValidationForm() {
+        let x = document.getElementById("number-input").value;
+        let text;
+        if (isNan(x) || x < 5 || x > 30) {
+            text = "Put in the right number you idiot.";
+        }
+        else {
+            text = "Thank you for putting in the right number! You are so smart!";
+        }
+        document.getElementById("numberDemo").innerHTML = text;
+    }
+
+
+    // JavaScript Forms
+    // Automatic Form Validation using required in the input tag
+
+
+
+
+
+ 
+
+
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
 
 
 
